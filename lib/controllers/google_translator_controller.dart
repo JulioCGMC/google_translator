@@ -9,20 +9,18 @@ class GoogleTranslatorController {
   late Locale? _translateTo;
   late Duration _cacheDuration;
 
-  final GoogleTranslatorRepository _translatorRepository 
-    = GoogleTranslatorRepository();
-  
+  final GoogleTranslatorRepository _translatorRepository =
+      GoogleTranslatorRepository();
+
   GoogleTranslatorController._();
   factory GoogleTranslatorController() {
     return _instance;
   }
 
-  static void init(
-    String apiKey, Locale translateFrom, {
-    bool? automaticDetection,
-    Locale? translateTo,
-    required Duration cacheDuration
-  }) {
+  static void init(String apiKey, Locale translateFrom,
+      {bool? automaticDetection,
+      Locale? translateTo,
+      required Duration cacheDuration}) {
     _instance = GoogleTranslatorController._()
       ..apiKey = apiKey
       .._translateFrom = translateFrom
@@ -43,12 +41,11 @@ class GoogleTranslatorController {
     return Locale("en");
   }
 
-  Future<String> translateText(String text) async => _translatorRepository
-  .translate(
-    text: text,
-    apiKey: apiKey, 
-    source: translateFrom.toLanguageTag(),
-    target: translateTo.toLanguageTag(),
-    cacheDuration: _cacheDuration
-  );
+  Future<String> translateText(String text) async =>
+      _translatorRepository.translate(
+          text: text,
+          apiKey: apiKey,
+          source: translateFrom.toLanguageTag(),
+          target: translateTo.toLanguageTag(),
+          cacheDuration: _cacheDuration);
 }

@@ -1,7 +1,7 @@
 name: google_translator
 description: A extension to native flutter widgets witch allows the widget to translate the text using Google Translate API.
 version: 1.0.0
-homepage:
+homepage: https://github.com/JulioCGMC/google_translator
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
