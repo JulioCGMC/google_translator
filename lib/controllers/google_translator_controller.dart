@@ -42,7 +42,9 @@ class GoogleTranslatorController {
   }
 
   Future<String> translateText(String text) async =>
-      _translatorRepository.translate(
+    translateFrom.toLanguageTag() == translateTo.toLanguageTag()
+          ? Future.value(text)
+          : _translatorRepository.translate(
           text: text,
           apiKey: apiKey,
           source: translateFrom.toLanguageTag(),
